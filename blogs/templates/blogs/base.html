@@ -1,0 +1,18 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'blogs/prism_dark.css' %}">
+        <link rel="stylesheet" href="{% static 'blogs/base.css' %}">
+        <script src="{% static 'blogs/prism.js' %}"></script>
+        
+    </head>
+    <body>
+        <div id="main_content">
+            <header>header</header>
+            {% block content %}
+            {% endblock %}
+        </div>
+        <footer>footer</footer>
+    </body>
+
+</html>
