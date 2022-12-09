@@ -13,3 +13,9 @@ def HomeView(request):
 class DetailView(generic.DetailView):
     model = Post
     template_name ='blogs/detail.html'
+
+
+def emailFunction(request):
+    print('called')
+    result = 'email function called'
+    return HttpResponse('hello')
