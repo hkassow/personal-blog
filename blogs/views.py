@@ -15,7 +15,32 @@ class DetailView(generic.DetailView):
     template_name ='blogs/detail.html'
 
 
+from email.message import EmailMessage
+import smtplib, ssl
+import environ
+env = environ.Env()
+environ.Env.read_env()
+
 def emailFunction(request):
-    print('called')
     result = 'email function called'
-    return HttpResponse('hello')
+
+    # creating message content 
+    msg = EmailMessage()
+    msg['Subject'] = 'test subject'
+    msg['From'] = env('email_from')
+    msg['To'] = 'hunterkassow@protonmail.com'
+    msg.set_content('test_content')
+    
+    # connecting to gmail server and sending message
+    context=ssl.create_default_context()
+    with smtplib.SMTP('smtp.gmail.com', port=587) as smtp:
+    
+        smtp.starttls(context=context)
+        smtp.ehlo()
+        smtp.login(msg['From'], env('email_pass'))
+        smtp.send_message(msg)
+        smtp.quit()
+
+    
+
+    return HttpResponse(result)
