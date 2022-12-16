@@ -3,41 +3,27 @@
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'blogs/prism_dark.css' %}">
         <link rel="stylesheet" href="{% static 'blogs/base.css' %}?{% now 'U' %}">
-        <script src="{% static 'blogs/prism.js' %}"></script>
-        <script> 
+        <script src="{% static 'blogs/prism.js' %}"></script> 
+        <script>
             function emailBtn(){
-                fetch('/emailFunc')
-                .then(r => console.log(r.text()))
+                // var htag = document.getElementById('test')
+                // console.log(htag)
+                // htag.innerHTML = js_variable
+                // htag.setAttribute('style', 'color:red')
+                // js_variable = 5
+
+
+                // fetch('/emailFunc')
+                // .then(r => console.log(r.text()))
             }
         </script>
+        
         
     </head>
     <body>
         <header>header</header>
-        <div id="page_layout">
-            <div id="main_content">
-                <div id="post_content">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            </div>
-            <div id="side_box">
-                <div id="side_box_content">
-                    <h1> Hunter Kassow </h1>
-                    <img id='profile_image' src="{% static 'blogs/images/profile_pic.jfif' %}" alt="baby hunter"/>
-                    <figure>
-                        <figcaption>Other media</figcaption>
-                        <ul>
-                            <li><a href="https://www.linkedin.com/in/hunter-kassow/" target="_blank" rel="noopener noreferrer">Linkedin</a></li>
-                            <li><a href="https://github.com/hkassow" target="_blank" rel="noopener noreferrer">Github</a></li>
-                            <li><a href="mailto:hunterdkassow@gmail.com">hunterdkassow@gmail.com</a></li>
-                        </ul>
-            
-                        <button onClick="emailBtn()">TEST CLICK</button>
-                    </figure>
-                </div>
-            </div>
-        </div>
+        {% block content %}
+        {% endblock %}
         <footer>footer</footer>
     </body>
 

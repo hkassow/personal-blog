@@ -1,6 +1,5 @@
-
-{% extends "blogs/base.html" %}
-{% block content %}
+{% extends "blogs/baseBlog.html" %}
+{% block child %}
     <h1> {{post.post_title}}</h1>
     <h2> Posted on: {{post.pub_date}} </h2>
     <h2> Last udated: {{post.update_date}} </h2>
