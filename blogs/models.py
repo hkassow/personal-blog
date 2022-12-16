@@ -15,7 +15,7 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            pub_date = timezone.now()
+            self.pub_date = timezone.now()
         self.update_date = timezone.now()
         super().save(*args, **kwargs)  # Call the "real" save() method.
         print('A post has been created or updated and this is its id:', self.id)
