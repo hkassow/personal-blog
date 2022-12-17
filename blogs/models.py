@@ -5,10 +5,10 @@ from django.utils import timezone
 
 
 class Post(models.Model):
-    post_title = models.CharField(max_length=30)
+    title = models.CharField(max_length=30)
     pub_date = models.DateTimeField('date published')
     update_date = models.DateTimeField('last updated')
-    post_body = HTMLField()
+    body = HTMLField()
 
     def __str__(self) -> str:
         return self.post_title

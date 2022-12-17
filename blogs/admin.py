@@ -5,5 +5,5 @@ from .models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
-    fields = ['pub_date', 'post_title', 'post_body']
+    fields = ['pub_date', 'title', 'body']
 admin.site.register(Post, PostAdmin)
